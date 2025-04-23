@@ -20,7 +20,7 @@ export default function MobileNav({ items, isOpened, setIsOpened } : MobileNavPr
       ) }
       <div className={`mobile__nav hidden max-lg:block fixed top-0 h-[100vh] bg-[#7f764f] w-[280px] pt-[100px] transition-all px-6 ${ isOpened ? "left-0" : "-left-full" }`}>
         {/* Close Btn */}
-        <button type="button" onClick={() => setIsOpened(false)} className="close__btn text-white absolute top-4 right-4 cursor-pointer w-[40px] h-[40px] flex items-center justify-center rounded-md hover:bg-[#e5dcd5] transition-all hover:text-black">
+        <button type="button" aria-label="Close Btn" onClick={() => setIsOpened(false)} className="close__btn text-white absolute top-4 right-4 cursor-pointer w-[40px] h-[40px] flex items-center justify-center rounded-md hover:bg-[#e5dcd5] transition-all hover:text-black">
           <IoCloseOutline size={28} />
         </button>
         

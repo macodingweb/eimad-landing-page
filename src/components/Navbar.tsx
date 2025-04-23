@@ -31,7 +31,7 @@ export default function Navbar({ logo, items, isOpened, setIsOpened } : NavProps
         </div>
 
         {/* Exchange Btn */}
-        <button onClick={() => setIsOpened(true)} className="exchange__btn hidden max-lg:flex text-white w-[40px] h-[40px] items-center justify-center rounded-md transition-all hover:bg-[#e5dcd5] hover:text-black cursor-pointer" type="button">
+        <button onClick={() => setIsOpened(true)} aria-label="Exchange btn" className="exchange__btn hidden max-lg:flex text-white w-[40px] h-[40px] items-center justify-center rounded-md transition-all hover:bg-[#e5dcd5] hover:text-black cursor-pointer" type="button">
           <IoMenu size={32} />
         </button>
 

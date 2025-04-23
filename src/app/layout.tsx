@@ -18,6 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="description" content="خدمة المحاماة عند عماد قمة في الاحترافية، دقة في التفاصيل وحلول قانونية تضمن لك حقك بكل ثقة" />
+      </head>
       <body
         className={`${cairo.className} antialiased`}
       >
