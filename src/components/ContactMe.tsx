@@ -1,11 +1,27 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { ContactInpts } from "@/constants/contact";
 import { FormGroup } from "./ui/Form-Group";
 
 export default function ContactMe() {
+  const duration = 0.3
+
   return (
     <section className="contact-me mt-8 mb-14" id="contact-me">
-      <div className="container mx-auto max-md:rounded-none p-12 max-md:p-4 max-md:py-8 max-lg:flex-col bg-gradient-to-r from-[#7f764f] to-[#938b60]  rounded-3xl flex items-center justify-between relative">
+      <motion.div 
+      transition={{
+        duration: duration,
+        delay:0.3
+      }}
+      initial={{
+        opacity: 0,
+        transform: "translate(20px, 0)",
+      }}
+      whileInView={{ opacity: 1, transform: "translate(0, 0)" }}
+      viewport={{ once: true }}
+      className="container mx-auto max-md:rounded-none p-12 max-md:p-4 max-md:py-8 max-lg:flex-col bg-gradient-to-r from-[#7f764f] to-[#938b60]  rounded-3xl flex items-center justify-between relative">
         {/* Bg Lines Vectors */}
         <div className="bg-line-vector absolute -left-1/12 -top-1.5 z-0 pointer-events-none">
           <Image
@@ -41,7 +57,7 @@ export default function ContactMe() {
             أرسل الطلب
           </button>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 }

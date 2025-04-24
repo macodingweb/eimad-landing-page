@@ -1,7 +1,12 @@
+"use client"
+
 import { FeaturesCards } from "@/constants/features";
 import { FeatureCard } from "./ui/feature-card";
+import { motion } from "framer-motion";
 
 export default function Features() {
+  const duration = 0.3;
+
   const TitlePseudoEles = `
     before:content-['']
     before:absolute
@@ -25,7 +30,17 @@ export default function Features() {
 
   return (
     <section className="features py-8" id="features">
-      <h1 className={`title text-[32px] text-[#cab763] font-black w-fit mx-auto relative ${TitlePseudoEles}`}>لماذا تعمل معي ؟</h1>
+      <motion.h1 
+      transition={{
+        duration: duration,
+      }}
+      initial={{
+        opacity: 0,
+        transform: "translate(20px, 0)",
+      }}
+      whileInView={{ opacity: 1, transform: "translate(0, 0)" }}
+      viewport={{ once: true }}
+      className={`title text-[32px] text-[#cab763] font-black w-fit mx-auto relative ${TitlePseudoEles}`}>لماذا تعمل معي ؟</motion.h1>
       <div className="container mx-auto p-6">
         <div className="card-group grid grid-cols-3 gap-6 mt-12 max-lg:grid-cols-2 max-md:grid-cols-1">
           { FeaturesCards.map((ele, index) => (

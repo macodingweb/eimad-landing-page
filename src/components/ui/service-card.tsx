@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from "framer-motion";
+
 type Data = {
   icon: React.ReactNode;
   title: string;
@@ -5,8 +9,21 @@ type Data = {
 };
 
 export function ServiceCard({ data }: { data: Data }) {
+  const duration = 0.3;
+
   return (
-  <div className="service-card rounded-xl transition-all hover:scale-95 shadow-md flex justify-between gap-3 p-6 border border-slate-300">
+  <motion.div 
+  transition={{
+    duration: duration,
+    delay:0.3
+  }}
+  initial={{
+    opacity: 0,
+    transform: "translate(20px, 0)",
+  }}
+  whileInView={{ opacity: 1, transform: "translate(0, 0)" }}
+  viewport={{ once: false }}
+  className="service-card rounded-xl transition-all hover:scale-95 shadow-md flex justify-between gap-3 p-6 border border-slate-300">
     <div className="icon min-w-[60px] h-[60px] bg-[#e0c65339] flex items-center justify-center rounded-full">
       {data.icon}
     </div>
@@ -16,6 +33,6 @@ export function ServiceCard({ data }: { data: Data }) {
         {data.content}
       </p>
     </div>
-  </div>
+  </motion.div>
   )
 }
