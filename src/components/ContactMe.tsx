@@ -13,6 +13,7 @@ export default function ContactMe() {
   const duration = 0.3;
 
   const SubmitBtn = useRef<HTMLButtonElement>(null);
+  const SendingMSG = useRef<HTMLSpanElement>(null);
 
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
@@ -24,6 +25,7 @@ export default function ContactMe() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    SendingMSG.current?.classList.remove("hidden");
     SubmitBtn.current?.classList.add("hidden");
 
     const formData = new FormData(e.currentTarget);
@@ -35,6 +37,7 @@ export default function ContactMe() {
         icon: "error",
       });
       SubmitBtn.current?.classList.remove("hidden");
+      SendingMSG.current?.classList.add("hidden");
       return;
     }
 
@@ -74,6 +77,7 @@ export default function ContactMe() {
         icon: "error",
       });
       SubmitBtn.current?.classList.remove("hidden");
+      SendingMSG.current?.classList.add("hidden");
     }
   };
 
@@ -133,6 +137,7 @@ export default function ContactMe() {
             sitekey="6Lc3RiMrAAAAABNInlwMOO2dNdXP4MT8xPZDiX3a"
             onChange={handleCaptchaToken}
           />
+          <span ref={SendingMSG} className="text-center w-full mt-4 px-6 border-2 border-transparent font-bold text-white hidden">جاري إرسال طلب الحجز ...</span>
           <button ref={SubmitBtn} className="mt-4 bg-white text-[#7f764f] font-bold py-3 cursor-pointer px-6 rounded-full hover:bg-transparent hover:text-white border-solid border-2 border-white transition">
             أرسل الطلب
           </button>
