@@ -4,16 +4,16 @@ export const MainListItems = [
     href: "#home",
   },
   {
-    text: "من أنا",
-    href: "#about-me",
-  },
-  {
-    text: "المميزات",
+    text: "المزايا",
     href: "#features",
   },
   {
     text: "الخدمات",
     href: "#services",
+  },
+  {  
+    text: "مواعيد العمل",
+    href: "#time",
   },
   {
     text: "احجز استشارة",
