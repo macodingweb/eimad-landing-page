@@ -32,14 +32,14 @@ export default function ContactMe() {
     }
   
     try {
-      const sendMessage = emailjs.sendForm(
+      const sendMessage = await emailjs.sendForm(
         "service_tnq0sen",
         "template_je5folr",
         e.currentTarget,
         "RH5mmSfvAVeMJ2rw3"
       );
 
-      if (await sendMessage) {
+      if (sendMessage.status === 200) {
         Swal.fire({
           title: "تم الإرسال",
           text: "تم ‘رسال طلب حجز استشارة بنجاح !",
