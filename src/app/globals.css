@@ -10,3 +10,16 @@ body {
 body {
   direction: rtl;
 }
+
+.service-card:hover p,
+.service-card:hover h3 {
+  color: #fff;
+}
+
+.service-card:hover {
+  background-color: #d4c16e;
+}
+
+.service-card:hover .icon {
+  background-color: #fff;
+}
