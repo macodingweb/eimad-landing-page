@@ -22,20 +22,36 @@ export default function ContactMe() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!captchaToken) {
-      Swal.fire({
-        title: "خطأ",
-        text: "من فضلك اثبت انك لست روبوت من اختبار reCAPTCHA",
-        icon: "error",
-      });
-      return;
-    }
+    const formData = new FormData(e.currentTarget);
+    formData.append("g-recaptcha-response", captchaToken || '');
+
+    // if (!captchaToken) {
+    //   Swal.fire({
+    //     title: "خطأ",
+    //     text: "من فضلك اثبت انك لست روبوت من اختبار reCAPTCHA",
+    //     icon: "error",
+    //   });
+    //   return;
+    // }
   
+    console.log(e.currentTarget);
+    
+
     try {
-      const sendMessage = await emailjs.sendForm(
+      const sendMessage = await emailjs.send(
         "service_tnq0sen",
         "template_je5folr",
-        e.currentTarget,
+        {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          consultation_type: formData.get("consultation_type"),
+          message:  formData.get("message"),
+          date: formData.get("preferred_date"),
+          time: formData.get("preferred_time"),
+          title: formData.get("name"),
+          "g-recaptcha-response": captchaToken,
+        },
         "RH5mmSfvAVeMJ2rw3"
       );
 
