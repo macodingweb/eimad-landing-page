@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ContactInpts } from "@/constants/contact";
 import { FormGroup } from "./ui/Form-Group";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
 import Swal from "sweetalert2";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -12,20 +12,10 @@ import ReCAPTCHA from "react-google-recaptcha";
 export default function ContactMe() {
   const duration = 0.3;
 
-  const formRef = useRef<HTMLFormElement>(null);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const handleCaptchaToken = (token: string | null) => {
     setCaptchaToken(token);
-
-    const form = formRef.current;
-  if (form) {
-    const hiddenInput = document.createElement('input');
-    hiddenInput.type = 'hidden';
-    hiddenInput.name = 'g-recaptcha-response';
-    hiddenInput.value = token || '';
-    form.appendChild(hiddenInput);
-  }
   };
 
 
@@ -123,7 +113,6 @@ export default function ContactMe() {
           </p>
         </div>
         <form
-          ref={formRef}
           onSubmit={(e) => handleSubmit(e)}
           className="left w-[500px] grid gap-4 relative z-30 max-md:w-full"
         >
@@ -135,6 +124,7 @@ export default function ContactMe() {
             sitekey="6Lc3RiMrAAAAABNInlwMOO2dNdXP4MT8xPZDiX3a" // ضع هنا Site Key الخاص بـ EmailJS
             onChange={handleCaptchaToken}
           />
+          <input type="hidden" name="g-recaptcha-response" value={captchaToken || ''} />
           <button className="mt-4 bg-white text-[#7f764f] font-bold py-3 cursor-pointer px-6 rounded-full hover:bg-transparent hover:text-white border-solid border-2 border-white transition">
             أرسل الطلب
           </button>
