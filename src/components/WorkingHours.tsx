@@ -3,7 +3,7 @@ import Map from "./ui/map";
 
 export default function WorkingHours() {
   return (
-    <section className="working-hours">
+    <section className="working-hours" id="working-hours">
       <div className="container mx-auto rounded-xl overflow-hidden relative px-2">
         <Map />
         <div className="working-time w-[340px] p-6 bg-white rounded-lg border border-slate-300 max-md:top-2/4 max-md:-translate-y-1/4 shadow-md max-sm:right-2/4 max-sm:translate-x-2/4 absolute top-2/4 -translate-y-2/4 right-8">

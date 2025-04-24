@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Landing() {
   return (
@@ -18,7 +19,7 @@ export default function Landing() {
             خدمة المحاماة عند عماد قمة في الاحترافية، دقة في التفاصيل وحلول<br />
             قانونية تضمن لك حقك بكل ثقة
           </p>
-          <button type="button" aria-label="Contact" className="w-fit cursor-pointer py-3 px-8 font-bold text-white bg-[#7f764f] rounded-md transition-all hover:bg-transparent hover:text-[#7f764f] border-2 border-solid border-[#7f764f]">احجز استشارتك</button>
+          <Link href={"#contact-me"} type="button" aria-label="Contact" className="w-fit cursor-pointer py-3 px-8 font-bold text-white bg-[#7f764f] rounded-md transition-all hover:bg-transparent hover:text-[#7f764f] border-2 border-solid border-[#7f764f]">احجز استشارتك</Link>
         </div>
 
         <div className="left mr-10 max-lg:mr-0">

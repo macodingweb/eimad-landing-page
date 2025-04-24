@@ -13,7 +13,7 @@ export const MainListItems = [
   },
   {  
     text: "مواعيد العمل",
-    href: "#time",
+    href: "#working-hours",
   },
   {
     text: "احجز استشارة",
