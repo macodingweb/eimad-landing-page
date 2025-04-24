@@ -24,8 +24,7 @@ export default function ContactMe() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    SubmitBtn.current?.disabled;
+    SubmitBtn.current?.classList.add("hidden");
 
     const formData = new FormData(e.currentTarget);
 
@@ -35,7 +34,7 @@ export default function ContactMe() {
         text: "من فضلك اثبت انك لست روبوت من اختبار reCAPTCHA",
         icon: "error",
       });
-      SubmitBtn.current?.removeAttribute("disabled");
+      SubmitBtn.current?.classList.remove("hidden");
       return;
     }
 
@@ -74,7 +73,7 @@ export default function ContactMe() {
         text: "حدث خطأ ما غير متوقع يرجى المحاوله لاحقا!",
         icon: "error",
       });
-      SubmitBtn.current?.removeAttribute("disabled");
+      SubmitBtn.current?.classList.remove("hidden");
     }
   };
 
