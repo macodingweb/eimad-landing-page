@@ -27,9 +27,9 @@ export const ContactInpts = [
       },
       {
         label: "اختر نوع الاستشارة",
-        id: "consulation_type",
+        id: "consultation_type",
         type: "select",
-        name: "consulation_type",
+        name: "consultation_type",
         opts: [
           {
             text: "استشارة قانونية شخصية",

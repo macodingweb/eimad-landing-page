@@ -20,7 +20,13 @@ export function FormInput({ data } : { data: FormInput }) {
       ) : data.type === "select" ? (
         <select name={data.name} id={data.id} className="form-input h-[45px] w-full outline-0 bg-[#ffffff4d] rounded-md px-3 text-slate-200 transition-all border-solid border-2 border-transparent focus:bg-transparent focus:border-[#eadc9f]" required>
           { data.opts?.map((ele, index) => (
-            <option value={ele.value} key={index} className="text-black">{ele.text}</option>
+            <>
+              { index === 0 ? (
+                <option value={ele.value} key={index} className="text-black" selected>{ele.text}</option>
+              ) : (
+                <option value={ele.value} key={index} className="text-black">{ele.text}</option>
+              ) }
+            </>
           )) }
         </select>
       ) : data.type === "tel" ? (
