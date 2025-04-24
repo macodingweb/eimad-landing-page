@@ -4,13 +4,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ContactInpts } from "@/constants/contact";
 import { FormGroup } from "./ui/Form-Group";
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import Swal from "sweetalert2";
 import emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactMe() {
   const duration = 0.3;
+
+  const SubmitBtn = useRef<HTMLButtonElement>(null);
 
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
@@ -22,6 +24,8 @@ export default function ContactMe() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    SubmitBtn.current?.setAttribute("disabled", "true");
+
     const formData = new FormData(e.currentTarget);
 
     if (!captchaToken) {
@@ -30,6 +34,7 @@ export default function ContactMe() {
         text: "من فضلك اثبت انك لست روبوت من اختبار reCAPTCHA",
         icon: "error",
       });
+      SubmitBtn.current?.removeAttribute("disabled");
       return;
     }
 
@@ -57,7 +62,9 @@ export default function ContactMe() {
           text: "تم إرسال طلب حجز استشارة بنجاح !",
           icon: "success",
         });
-        e.currentTarget.reset();
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000)
       }
     } catch (err) {
       console.log(err);
@@ -66,6 +73,7 @@ export default function ContactMe() {
         text: "حدث خطأ ما غير متوقع يرجى المحاوله لاحقا!",
         icon: "error",
       });
+      SubmitBtn.current?.removeAttribute("disabled");
     }
   };
 
@@ -122,10 +130,10 @@ export default function ContactMe() {
           ))}
           {/* إضافة reCAPTCHA */}
           <ReCAPTCHA
-            sitekey="6Lc3RiMrAAAAABNInlwMOO2dNdXP4MT8xPZDiX3a" // ضع هنا Site Key الخاص بـ EmailJS
+            sitekey="6Lc3RiMrAAAAABNInlwMOO2dNdXP4MT8xPZDiX3a"
             onChange={handleCaptchaToken}
           />
-          <button className="mt-4 bg-white text-[#7f764f] font-bold py-3 cursor-pointer px-6 rounded-full hover:bg-transparent hover:text-white border-solid border-2 border-white transition">
+          <button ref={SubmitBtn} className="mt-4 bg-white text-[#7f764f] font-bold py-3 cursor-pointer px-6 rounded-full hover:bg-transparent hover:text-white border-solid border-2 border-white transition">
             أرسل الطلب
           </button>
         </form>
