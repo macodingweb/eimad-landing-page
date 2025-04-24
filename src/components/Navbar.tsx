@@ -39,7 +39,7 @@ export default function Navbar({ logo, items, isOpened, setIsOpened } : NavProps
         <ul className="main__list max-lg:hidden flex items-center gap-3">
           {/* List Items */}
           { items.map((ele, index) => (
-            <ListItem data={ele} key={index} />
+            <ListItem setIsOpened={setIsOpened} data={ele} key={index} />
           )) }
         </ul>
 
