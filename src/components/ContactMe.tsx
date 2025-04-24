@@ -57,6 +57,7 @@ export default function ContactMe() {
           text: "تم إرسال طلب حجز استشارة بنجاح !",
           icon: "success",
         });
+        e.currentTarget.reset();
       }
     } catch (err) {
       console.log(err);
