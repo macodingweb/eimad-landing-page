@@ -31,23 +31,11 @@ export default function ContactMe() {
       return;
     }
   
-
-    const formData = new FormData(e.currentTarget);
-
     try {
-      const sendMessage = emailjs.send(
+      const sendMessage = emailjs.sendForm(
         "service_tnq0sen",
         "template_je5folr",
-        {
-          name: formData.get("name"),
-          email: formData.get("email"),
-          phone: formData.get("phone"),
-          consultation_type: formData.get("consultation_type"),
-          message: formData.get("message"),
-          data: formData.get("preferred_date"),
-          time: formData.get("preferred_time"),
-          title: formData.get("name"),
-        },
+        e.currentTarget,
         "RH5mmSfvAVeMJ2rw3"
       );
 
