@@ -26,7 +26,7 @@ export default function Navbar({ logo, items, isOpened, setIsOpened } : NavProps
           <Image src={logo} alt="Logo" width={60} height={0} className="rounded-lg shadow-lg" />
           <div className="logo__text__container grid gap-1 text-center max-lg:text-right font-bold text-white">
             <span className="text-[18px] max-sm:text-[16px]">عماد اليابسي</span>
-            <span className="font-[400] max-sm:text-[14px]">محامي قانوني و استشاري</span>
+            <span className="font-[400] max-sm:text-[14px]">محامي و استشاري قانوني</span>
           </div>
         </div>
 
