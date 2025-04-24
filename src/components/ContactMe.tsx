@@ -23,7 +23,6 @@ export default function ContactMe() {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    formData.append("g-recaptcha-response", captchaToken || '');
 
     if (!captchaToken) {
       Swal.fire({
@@ -33,9 +32,6 @@ export default function ContactMe() {
       });
       return;
     }
-  
-    console.log(e.currentTarget);
-    
 
     try {
       const sendMessage = await emailjs.send(
@@ -47,7 +43,7 @@ export default function ContactMe() {
           phone: formData.get("phone"),
           consultation_type: formData.get("consultation_type"),
           message:  formData.get("message"),
-          date: formData.get("preferred_date"),
+          data: formData.get("preferred_date"),
           time: formData.get("preferred_time"),
           title: formData.get("name"),
           "g-recaptcha-response": captchaToken,
@@ -58,7 +54,7 @@ export default function ContactMe() {
       if (sendMessage.status === 200) {
         Swal.fire({
           title: "تم الإرسال",
-          text: "تم ‘رسال طلب حجز استشارة بنجاح !",
+          text: "تم إرسال طلب حجز استشارة بنجاح !",
           icon: "success",
         });
       }
@@ -128,7 +124,6 @@ export default function ContactMe() {
             sitekey="6Lc3RiMrAAAAABNInlwMOO2dNdXP4MT8xPZDiX3a" // ضع هنا Site Key الخاص بـ EmailJS
             onChange={handleCaptchaToken}
           />
-          <input type="hidden" name="g-recaptcha-response" value={captchaToken || ''} />
           <button className="mt-4 bg-white text-[#7f764f] font-bold py-3 cursor-pointer px-6 rounded-full hover:bg-transparent hover:text-white border-solid border-2 border-white transition">
             أرسل الطلب
           </button>
