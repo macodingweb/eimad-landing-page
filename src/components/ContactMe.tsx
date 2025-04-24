@@ -24,7 +24,8 @@ export default function ContactMe() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    SubmitBtn.current?.setAttribute("disabled", "true");
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    SubmitBtn.current?.disabled;
 
     const formData = new FormData(e.currentTarget);
 
