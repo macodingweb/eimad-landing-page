@@ -25,14 +25,14 @@ export default function ContactMe() {
     const formData = new FormData(e.currentTarget);
     formData.append("g-recaptcha-response", captchaToken || '');
 
-    // if (!captchaToken) {
-    //   Swal.fire({
-    //     title: "خطأ",
-    //     text: "من فضلك اثبت انك لست روبوت من اختبار reCAPTCHA",
-    //     icon: "error",
-    //   });
-    //   return;
-    // }
+    if (!captchaToken) {
+      Swal.fire({
+        title: "خطأ",
+        text: "من فضلك اثبت انك لست روبوت من اختبار reCAPTCHA",
+        icon: "error",
+      });
+      return;
+    }
   
     console.log(e.currentTarget);
     
