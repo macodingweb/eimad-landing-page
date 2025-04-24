@@ -5,7 +5,7 @@ type Data = {
   href: string,
 }
 
-export function ListItem({ data } : { data: Data }) {
+export function ListItem({ data, setIsOpened } : { data: Data, setIsOpened: React.Dispatch<React.SetStateAction<boolean>> }) {
   const ListItemBefore = `
     before:content-['']
     before:absolute
@@ -23,7 +23,7 @@ export function ListItem({ data } : { data: Data }) {
 
   return (
     <li className={`list__item relative ${ListItemBefore} text-white transition-all max-lg:w-full hover:text-black hover:before:w-full hover:before:h-full hover:before:rounded-md`}>
-      <Link href={data.href} className={`block p-2 px-3 font-semibold z-30 max-lg:w-full relative`}>{data.text}</Link>
+      <Link onClick={() => setIsOpened(false)} href={data.href} className={`block p-2 px-3 font-semibold z-30 max-lg:w-full relative`}>{data.text}</Link>
     </li>
   )
 }

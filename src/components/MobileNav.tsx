@@ -27,7 +27,7 @@ export default function MobileNav({ items, isOpened, setIsOpened } : MobileNavPr
         <ul className="main__list flex items-center flex-col gap-5">
           {/* List Items */}
           { items.map((ele, index) => (
-            <ListItem data={ele} key={index} />
+            <ListItem setIsOpened={setIsOpened} data={ele} key={index} />
           )) }
         </ul>
       </div>
