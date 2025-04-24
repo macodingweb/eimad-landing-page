@@ -11,7 +11,7 @@ export function ServiceCard({ data }: { data: Data }) {
       {data.icon}
     </div>
     <div className="content grid gap-3">
-      <h3 className="title font-bold text-[20px] select-none">{data.title}</h3>
+      <h1 className="title font-bold text-[20px] select-none">{data.title}</h1>
       <p className="content leading-[1.7] text-slate-500 font-[400] select-none">
         {data.content}
       </p>

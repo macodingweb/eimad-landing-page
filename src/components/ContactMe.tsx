@@ -11,18 +11,18 @@ export default function ContactMe() {
           <Image
             src={"/vectors/bg-icon-lines.webp"}
             alt="BG Lines"
-            width={1000}
+            width={1065}
             height={0}
-            className="w-[1000px] h-fit"
+            className="w-[1065px] h-fit"
           />
         </div>
         <div className="bg-line-vector absolute max-lg:hidden -right-1/12 -bottom-1.5 z-0 pointer-events-none">
           <Image
             src={"/vectors/bg-icon-lines-1.webp"}
             alt="BG Lines"
-            width={500}
+            width={413}
             height={0}
-            className="w-[500px] h-fit"
+            className="w-[413px] h-fit"
           />
         </div>
 
