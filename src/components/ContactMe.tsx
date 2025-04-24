@@ -17,16 +17,17 @@ export default function ContactMe() {
 
   const handleCaptchaToken = (token: string | null) => {
     setCaptchaToken(token);
+
+    const form = formRef.current;
+  if (form) {
+    const hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.name = 'g-recaptcha-response';
+    hiddenInput.value = token || '';
+    form.appendChild(hiddenInput);
+  }
   };
 
-  const form = formRef.current;
-    if (form) {
-      const hiddenInput = document.createElement('input');
-      hiddenInput.type = 'hidden';
-      hiddenInput.name = 'g-recaptcha-response';
-      hiddenInput.value = captchaToken || '';
-      form.appendChild(hiddenInput);
-    }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
