@@ -52,7 +52,7 @@ export default function Landing() {
             transform: "translate(20px, 0)",
           }}
           animate={{ opacity: 1, transform: "translate(0, 0)" }}
-          href={"#contact-me"} type="button" aria-label="Contact" className="w-fit cursor-pointer py-3 px-8 font-bold text-white bg-[#7f764f] rounded-md transition-all hover:bg-transparent hover:text-[#7f764f] border-2 border-solid border-[#7f764f]">احجز استشارتك</motion.a>
+          href={"https://api.whatsapp.com/send?phone=966554050324&text=AlyabsiE"} aria-label="Contact" className="w-fit cursor-pointer py-3 px-8 font-bold text-white bg-[#7f764f] rounded-md transition-all hover:bg-transparent hover:text-[#7f764f] border-2 border-solid border-[#7f764f]">اتصل الآن</motion.a>
         </div>
 
         <motion.div 
