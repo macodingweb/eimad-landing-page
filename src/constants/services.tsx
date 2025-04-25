@@ -6,6 +6,11 @@ import { VscSourceControl } from "react-icons/vsc";
 import { TbLicense } from "react-icons/tb";
 
 export const ServicesCards = [
+    {
+    icon: <RiDiscussLine size={28} />,
+    title: "استشارات قانونية",
+    content: "تقديم استشارات قانونية متخصصة في القضايا المدنية، التجارية، والعمالية.",
+  },
   {
     icon: <TbContract size={28} />,
     title: "إعداد وصياغة العقود",
