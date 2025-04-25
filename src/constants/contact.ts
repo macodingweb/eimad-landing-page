@@ -63,6 +63,7 @@ export const ContactInpts = [
   },
   {
     isGroup: true,
+    type: "date",
     inpts: [
       {
         label: "تحديد تاريخ للإستشارة",
